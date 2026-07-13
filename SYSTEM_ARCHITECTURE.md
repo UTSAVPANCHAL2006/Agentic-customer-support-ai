@@ -8,8 +8,11 @@
 
 ```mermaid
 flowchart TD
-    U([👤 User]) -->|Browser| ST[🖥️ Streamlit UI\napp/main.py :8501]
-    ST -->|POST /chat streaming| API[⚡ FastAPI Backend\napp/api.py :8000]
+    U([👤 User]) -->|Browser| ST[🖥️ Streamlit UI
+Port :8501]
+    ST -->|POST /chat streaming| API[⚡ FastAPI Backend
+Port :8000
+]
 
     API -->|check IP count| RL[🔴 Redis Rate Limiter\n5 req / 60s per IP]
     RL -->|429 Too Many Requests| ST
@@ -182,6 +185,29 @@ flowchart LR
 | `support_redis` | `redis/redis-stack:latest` | `6379` (DB) · `8001` (RedisInsight UI) |
 | `support_api` | Built from `Dockerfile` | `8000` |
 | `support_ui` | Built from `Dockerfile` | `8501` |
+
+---
+
+## 🚀 CI/CD & AWS Deployment
+
+The system includes an automated deployment pipeline utilizing **GitHub Actions**. 
+
+```mermaid
+flowchart LR
+    DEV[Developer] -->|git push| GH[GitHub Actions]
+    GH -->|SSH & secrets| EC2[AWS EC2 Instance]
+    
+    subgraph EC2
+        PULL[git pull origin main] --> DOWN[docker-compose down]
+        DOWN --> BUILD[docker-compose up --build -d]
+    end
+```
+
+**Key CI/CD Features:**
+- **Zero-Downtime Swap:** Rebuilds images and swaps containers using `docker-compose`.
+- **Dynamic Secret Injection:** Injects the `.env` file dynamically during the GitHub Action run to keep API keys secure.
+- **Resource Management:** Automatically prunes dangling images to prevent the EC2 storage from filling up over time.
+- **Free Tier Optimized:** Requires a 2GB Swap File on a `t2.micro` instance to safely load HuggingFace models into RAM without OOM crashes.
 
 ---
 

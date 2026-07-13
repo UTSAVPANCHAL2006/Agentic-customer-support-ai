@@ -170,6 +170,7 @@ Every user message travels through this exact pipeline:
 | 💬 Streaming | Real-time token streaming (`StreamingResponse`) | ✅ Active |
 | 🧠 Persistent Memory | Redis Stack (`RedisSaver`) — survives server restarts | ✅ Active |
 | 🚦 Rate Limiting | Redis middleware — 5 requests / 60 seconds per IP | ✅ Active |
+| 🚀 CI/CD Pipeline | Automated GitHub Actions deployment to AWS EC2 | ✅ Active |
 | 🔭 Observability | Langfuse tracing (toggleable via `LANGFUSE_ENABLED`) | ✅ Active |
 | 📦 Realistic Data | Enriched `tickets.json` histories and chronologic `tracking.json` events | ✅ Active |
 | 🐳 Docker | Full docker-compose stack (Redis + API + UI) | ✅ Active |
@@ -250,6 +251,16 @@ To stop everything:
 ```bash
 docker-compose down
 ```
+
+---
+
+### Option C — AWS EC2 Deployment (Automated via CI/CD)
+
+The project includes a fully automated **GitHub Actions** pipeline (`.github/workflows/deploy.yml`) that deploys directly to an AWS EC2 instance.
+
+For detailed instructions on setting up the EC2 server (including Swap File configuration for the Free Tier) and configuring the required GitHub Secrets (`EC2_HOST`, `EC2_USERNAME`, `EC2_SSH_KEY`, `ENV_FILE`), please refer to the [AWS Deployment Guide](AWS_DEPLOYMENT.md).
+
+Once configured, any push to the `main` branch will automatically deploy the latest changes to your live server.
 
 ---
 
