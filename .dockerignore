@@ -1,0 +1,30 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Environment
+.env
+
+# Git
+.git/
+.gitignore
+
+# OS
+.DS_Store
+
+# Artifacts / Logs / Output
+artifacts/
+logs/
+graph.png
+
+# Tests
+tests/
+
+# Docs
+*.md
+SYSTEM_ARCHITECTURE.md
+REDIS_IMPLEMENTATION.md

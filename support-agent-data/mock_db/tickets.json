@@ -1,0 +1,505 @@
+{
+  "T-3001": {
+    "user_id": "user_13",
+    "status": "in_progress",
+    "category": "shipping",
+    "order_id": "ORD-1027",
+    "created_at": "2026-06-13",
+    "subject": "Delivery delayed",
+    "description": "Customer reported an issue regarding delivery delayed.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding delivery delayed.",
+        "timestamp": "2026-06-13T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-13T14:30:00Z"
+      }
+    ]
+  },
+  "T-3002": {
+    "user_id": "user_12",
+    "status": "in_progress",
+    "category": "shipping",
+    "order_id": "ORD-1017",
+    "created_at": "2026-06-16",
+    "subject": "Where is my order?",
+    "description": "Customer reported an issue regarding where is my order?.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding where is my order?.",
+        "timestamp": "2026-06-16T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-16T14:30:00Z"
+      }
+    ]
+  },
+  "T-3003": {
+    "user_id": "user_6",
+    "status": "open",
+    "category": "billing",
+    "order_id": "ORD-1026",
+    "created_at": "2026-06-09",
+    "subject": "Double charge on my card",
+    "description": "Customer reported an issue regarding double charge on my card.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding double charge on my card.",
+        "timestamp": "2026-06-09T10:00:00Z"
+      }
+    ]
+  },
+  "T-3004": {
+    "user_id": "user_8",
+    "status": "resolved",
+    "category": "shipping",
+    "order_id": "ORD-1023",
+    "created_at": "2026-06-20",
+    "subject": "Change shipping address",
+    "description": "Customer reported an issue regarding change shipping address.",
+    "resolution": "The issue has been successfully resolved according to policy.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding change shipping address.",
+        "timestamp": "2026-06-20T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-20T14:30:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "The issue has been successfully resolved according to policy.",
+        "timestamp": "2026-06-22T00:00:00Z"
+      }
+    ]
+  },
+  "T-3005": {
+    "user_id": "user_6",
+    "status": "escalated",
+    "category": "returns",
+    "order_id": "ORD-1012",
+    "created_at": "2026-06-03",
+    "subject": "Wrong item received",
+    "description": "Customer reported an issue regarding wrong item received.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding wrong item received.",
+        "timestamp": "2026-06-03T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-03T14:30:00Z"
+      }
+    ]
+  },
+  "T-3006": {
+    "user_id": "user_4",
+    "status": "open",
+    "category": "shipping",
+    "order_id": "ORD-1016",
+    "created_at": "2026-06-07",
+    "subject": "Delivery delayed",
+    "description": "Customer reported an issue regarding delivery delayed.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding delivery delayed.",
+        "timestamp": "2026-06-07T10:00:00Z"
+      }
+    ]
+  },
+  "T-3007": {
+    "user_id": "user_6",
+    "status": "in_progress",
+    "category": "technical",
+    "order_id": "ORD-1020",
+    "created_at": "2026-06-29",
+    "subject": "Cannot reset password",
+    "description": "Customer reported an issue regarding cannot reset password.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding cannot reset password.",
+        "timestamp": "2026-06-29T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-29T14:30:00Z"
+      }
+    ]
+  },
+  "T-3008": {
+    "user_id": "user_10",
+    "status": "open",
+    "category": "technical",
+    "order_id": "ORD-1030",
+    "created_at": "2026-06-21",
+    "subject": "Cannot reset password",
+    "description": "Customer reported an issue regarding cannot reset password.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding cannot reset password.",
+        "timestamp": "2026-06-21T10:00:00Z"
+      }
+    ]
+  },
+  "T-3009": {
+    "user_id": "user_6",
+    "status": "open",
+    "category": "billing",
+    "order_id": "ORD-1030",
+    "created_at": "2026-06-13",
+    "subject": "Invoice not received",
+    "description": "Customer reported an issue regarding invoice not received.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding invoice not received.",
+        "timestamp": "2026-06-13T10:00:00Z"
+      }
+    ]
+  },
+  "T-3010": {
+    "user_id": "user_13",
+    "status": "in_progress",
+    "category": "technical",
+    "order_id": "ORD-1029",
+    "created_at": "2026-06-06",
+    "subject": "Error 500 on website",
+    "description": "Customer reported an issue regarding error 500 on website.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding error 500 on website.",
+        "timestamp": "2026-06-06T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-06T14:30:00Z"
+      }
+    ]
+  },
+  "T-3011": {
+    "user_id": "user_7",
+    "status": "resolved",
+    "category": "billing",
+    "order_id": "ORD-1026",
+    "created_at": "2026-07-01",
+    "subject": "Invoice not received",
+    "description": "Customer reported an issue regarding invoice not received.",
+    "resolution": "The issue has been successfully resolved according to policy.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding invoice not received.",
+        "timestamp": "2026-07-01T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-07-01T14:30:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "The issue has been successfully resolved according to policy.",
+        "timestamp": "2026-07-03T00:00:00Z"
+      }
+    ]
+  },
+  "T-3012": {
+    "user_id": "user_12",
+    "status": "escalated",
+    "category": "technical",
+    "order_id": "ORD-1013",
+    "created_at": "2026-06-24",
+    "subject": "Error 500 on website",
+    "description": "Customer reported an issue regarding error 500 on website.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding error 500 on website.",
+        "timestamp": "2026-06-24T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-24T14:30:00Z"
+      }
+    ]
+  },
+  "T-3013": {
+    "user_id": "user_2",
+    "status": "in_progress",
+    "category": "shipping",
+    "order_id": "ORD-1005",
+    "created_at": "2026-06-01",
+    "subject": "Delivery delayed",
+    "description": "Customer reported an issue regarding delivery delayed.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding delivery delayed.",
+        "timestamp": "2026-06-01T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-01T14:30:00Z"
+      }
+    ]
+  },
+  "T-3014": {
+    "user_id": "user_3",
+    "status": "escalated",
+    "category": "shipping",
+    "order_id": "ORD-1020",
+    "created_at": "2026-06-27",
+    "subject": "Where is my order?",
+    "description": "Customer reported an issue regarding where is my order?.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding where is my order?.",
+        "timestamp": "2026-06-27T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-27T14:30:00Z"
+      }
+    ]
+  },
+  "T-3015": {
+    "user_id": "user_10",
+    "status": "escalated",
+    "category": "returns",
+    "order_id": "ORD-1005",
+    "created_at": "2026-06-18",
+    "subject": "How to return?",
+    "description": "Customer reported an issue regarding how to return?.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding how to return?.",
+        "timestamp": "2026-06-18T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-18T14:30:00Z"
+      }
+    ]
+  },
+  "T-3016": {
+    "user_id": "user_9",
+    "status": "in_progress",
+    "category": "billing",
+    "order_id": "ORD-1001",
+    "created_at": "2026-06-26",
+    "subject": "Double charge on my card",
+    "description": "Customer reported an issue regarding double charge on my card.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding double charge on my card.",
+        "timestamp": "2026-06-26T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-26T14:30:00Z"
+      }
+    ]
+  },
+  "T-3017": {
+    "user_id": "user_12",
+    "status": "open",
+    "category": "account",
+    "order_id": "ORD-1024",
+    "created_at": "2026-06-30",
+    "subject": "Update email address",
+    "description": "Customer reported an issue regarding update email address.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding update email address.",
+        "timestamp": "2026-06-30T10:00:00Z"
+      }
+    ]
+  },
+  "T-3018": {
+    "user_id": "user_3",
+    "status": "escalated",
+    "category": "shipping",
+    "order_id": "ORD-1027",
+    "created_at": "2026-06-28",
+    "subject": "Change shipping address",
+    "description": "Customer reported an issue regarding change shipping address.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding change shipping address.",
+        "timestamp": "2026-06-28T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-28T14:30:00Z"
+      }
+    ]
+  },
+  "T-3019": {
+    "user_id": "user_4",
+    "status": "open",
+    "category": "returns",
+    "order_id": "ORD-1007",
+    "created_at": "2026-06-10",
+    "subject": "Wrong item received",
+    "description": "Customer reported an issue regarding wrong item received.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding wrong item received.",
+        "timestamp": "2026-06-10T10:00:00Z"
+      }
+    ]
+  },
+  "T-3020": {
+    "user_id": "user_9",
+    "status": "in_progress",
+    "category": "account",
+    "order_id": "ORD-1011",
+    "created_at": "2026-06-09",
+    "subject": "Update email address",
+    "description": "Customer reported an issue regarding update email address.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding update email address.",
+        "timestamp": "2026-06-09T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-09T14:30:00Z"
+      }
+    ]
+  },
+  "T-3021": {
+    "user_id": "user_9",
+    "status": "escalated",
+    "category": "shipping",
+    "order_id": "ORD-1002",
+    "created_at": "2026-06-30",
+    "subject": "Change shipping address",
+    "description": "Customer reported an issue regarding change shipping address.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding change shipping address.",
+        "timestamp": "2026-06-30T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-30T14:30:00Z"
+      }
+    ]
+  },
+  "T-3022": {
+    "user_id": "user_12",
+    "status": "resolved",
+    "category": "technical",
+    "order_id": "ORD-1022",
+    "created_at": "2026-06-19",
+    "subject": "Cannot reset password",
+    "description": "Customer reported an issue regarding cannot reset password.",
+    "resolution": "The issue has been successfully resolved according to policy.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding cannot reset password.",
+        "timestamp": "2026-06-19T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-19T14:30:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "The issue has been successfully resolved according to policy.",
+        "timestamp": "2026-06-21T00:00:00Z"
+      }
+    ]
+  },
+  "T-3023": {
+    "user_id": "user_14",
+    "status": "escalated",
+    "category": "account",
+    "order_id": "ORD-1005",
+    "created_at": "2026-06-18",
+    "subject": "Delete my account",
+    "description": "Customer reported an issue regarding delete my account.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding delete my account.",
+        "timestamp": "2026-06-18T10:00:00Z"
+      },
+      {
+        "author": "support_agent",
+        "message": "We are looking into this for you. Please allow 24-48 hours for an update.",
+        "timestamp": "2026-06-18T14:30:00Z"
+      }
+    ]
+  },
+  "T-3024": {
+    "user_id": "user_3",
+    "status": "open",
+    "category": "technical",
+    "order_id": "ORD-1025",
+    "created_at": "2026-06-06",
+    "subject": "App crashing on checkout",
+    "description": "Customer reported an issue regarding app crashing on checkout.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding app crashing on checkout.",
+        "timestamp": "2026-06-06T10:00:00Z"
+      }
+    ]
+  },
+  "T-3025": {
+    "user_id": "user_10",
+    "status": "open",
+    "category": "shipping",
+    "order_id": "ORD-1006",
+    "created_at": "2026-06-05",
+    "subject": "Change shipping address",
+    "description": "Customer reported an issue regarding change shipping address.",
+    "updates": [
+      {
+        "author": "customer",
+        "message": "Customer reported an issue regarding change shipping address.",
+        "timestamp": "2026-06-05T10:00:00Z"
+      }
+    ]
+  }
+}

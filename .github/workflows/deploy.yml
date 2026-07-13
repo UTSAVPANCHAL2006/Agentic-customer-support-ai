@@ -1,0 +1,40 @@
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+
+      - name: Deploy to EC2 via SSH Action
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            # Navigate to the project directory
+            cd ~/support-agent
+            
+            # Pull the latest code from GitHub
+            git pull origin main
+            
+            # Create the .env file dynamically from GitHub Secrets
+            echo "${{ secrets.ENV_FILE }}" > .env
+            
+            # Stop existing containers
+            docker-compose down
+            
+            # Rebuild and start the containers seamlessly
+            docker-compose up --build -d
+            
+            # Clean up dangling images to save space
+            docker image prune -f

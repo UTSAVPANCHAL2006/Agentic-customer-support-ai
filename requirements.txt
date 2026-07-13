@@ -1,0 +1,16 @@
+langchain
+langchain-community
+langchain-core
+langchain-groq
+langchain-huggingface
+langchain-qdrant
+sentence_transformers
+rank-bm25
+langfuse
+langgraph
+python-dotenv
+fastapi
+uvicorn
+streamlit
+redis
+langgraph-checkpoint-redis
