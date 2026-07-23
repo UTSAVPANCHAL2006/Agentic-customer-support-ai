@@ -86,36 +86,46 @@ class ChatRequest(BaseModel):
 def chat_endpoint(request: ChatRequest):
     from fastapi.responses import StreamingResponse
     from app.prompts.generate_prompt import GENERATE_PROMPT
-    from langfuse.langchain import CallbackHandler
+    from app.config.config import LANGFUSE_ENABLED
     
-    langfuse_handler = CallbackHandler()
+    callbacks = []
+    if LANGFUSE_ENABLED:
+        from langfuse.langchain import CallbackHandler
+        langfuse_handler = CallbackHandler()
+        callbacks.append(langfuse_handler)
 
-    result = graph.run(ticket=request.ticket, thread_id=request.thread_id, callbacks=[langfuse_handler])
+    try:
+        result = graph.run(ticket=request.ticket, thread_id=request.thread_id, callbacks=callbacks)
 
-    action = result.get("action", "")
-    
-    if action == "blocked":
-        def blocked_stream():
-            yield result.get("response", "This request violates safety policies and has been blocked.")
-        return StreamingResponse(blocked_stream(), media_type="text/plain")
+        action = result.get("action", "")
+        
+        if action == "blocked":
+            def blocked_stream():
+                yield result.get("response", "This request violates safety policies and has been blocked.")
+            return StreamingResponse(blocked_stream(), media_type="text/plain")
 
-    documents   = result.get("documents", [])
-    tool_result = result.get("tool_result") or {}
-    order_id    = result.get("order_id")
-    ticket_id   = result.get("ticket_id")
-    all_messages = result.get("messages", [])
-    history = all_messages[:-2] if len(all_messages) >= 2 else []
+        documents   = result.get("documents", [])
+        tool_result = result.get("tool_result") or {}
+        order_id    = result.get("order_id")
+        ticket_id   = result.get("ticket_id")
+        all_messages = result.get("messages", [])
+        history = all_messages[:-2] if len(all_messages) >= 2 else []
 
-    def token_stream():
-        for chunk in generator.stream_generate(
-            ticket=request.ticket,
-            action=action,
-            documents=documents,
-            tool_result=tool_result,
-            history=history,
-            order_id=order_id,
-            ticket_id=ticket_id,
-        ):
-            yield chunk
-
-    return StreamingResponse(token_stream(), media_type="text/plain")
+        def token_stream():
+            for chunk in generator.stream_generate(
+                ticket=request.ticket,
+                documents=documents,
+                tool_result=tool_result,
+                order_id=order_id,
+                ticket_id=ticket_id,
+                history=history
+            ):
+                yield chunk
+        return StreamingResponse(token_stream(), media_type="text/plain")
+    except Exception as e:
+        import traceback
+        error_msg = f"Internal Server Error details: {str(e)}\n\n{traceback.format_exc()}"
+        print(error_msg)
+        def error_stream():
+            yield error_msg
+        return StreamingResponse(error_stream(), media_type="text/plain", status_code=500)
