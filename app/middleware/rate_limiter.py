@@ -1,5 +1,4 @@
 import redis
-import json
 from fastapi import Request
 from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
@@ -25,16 +24,11 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
         if request.url.path != "/chat":
             return await call_next(request)
 
-        # read the request body to get thread_id
-        # (IP-based limiting fails in Docker — all requests come from same container IP)
-        try:
-            body = await request.body()
-            body_json = json.loads(body)
-            thread_id = body_json.get("thread_id", None)
-        except Exception:
-            thread_id = None
+        # read thread_id from header (avoids consuming the request body)
+        # Streamlit sends this as X-Thread-ID header
+        thread_id = request.headers.get("x-thread-id", None)
 
-        # fallback to IP if thread_id not found
+        # fallback to IP if header not found
         if thread_id:
             key = f"ratelimit:thread:{thread_id}"
         else:
@@ -58,12 +52,6 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
                     "retry_after_seconds": seconds_left
                 }
             )
-
-        # rebuild request with body so downstream can still read it
-        async def receive():
-            return {"type": "http.request", "body": body}
-
-        request._receive = receive
 
         # everything is fine, pass the request through
         return await call_next(request)

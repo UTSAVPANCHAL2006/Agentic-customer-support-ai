@@ -65,6 +65,7 @@ if prompt := st.chat_input("How can I help you today?"):
                 with requests.post(
                     API_URL,
                     json=payload,
+                    headers={"X-Thread-ID": active_thread},
                     stream=True,
                     timeout=60
                 ) as r:
