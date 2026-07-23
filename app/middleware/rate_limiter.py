@@ -6,7 +6,7 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from app.config.config import REDIS_URL
 
 # how many requests allowed per window
-MAX_REQUESTS = 20
+MAX_REQUESTS = 5
 
 # time window in seconds
 TIME_WINDOW = 60
