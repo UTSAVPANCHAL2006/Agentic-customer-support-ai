@@ -112,15 +112,23 @@ def chat_endpoint(request: ChatRequest):
         history = all_messages[:-2] if len(all_messages) >= 2 else []
 
         def token_stream():
-            for chunk in generator.stream_generate(
-                ticket=request.ticket,
-                documents=documents,
-                tool_result=tool_result,
-                order_id=order_id,
-                ticket_id=ticket_id,
-                history=history
-            ):
-                yield chunk
+            try:
+                for chunk in generator.stream_generate(
+                    ticket=request.ticket,
+                    action=action,
+                    documents=documents,
+                    tool_result=tool_result,
+                    order_id=order_id,
+                    ticket_id=ticket_id,
+                    history=history
+                ):
+                    yield chunk
+            except Exception as e:
+                import traceback
+                error_msg = f"\n\n🚨 **Streaming Error:** {str(e)}\n\n```\n{traceback.format_exc()}\n```"
+                print(error_msg)
+                yield error_msg
+                
         return StreamingResponse(token_stream(), media_type="text/plain")
     except Exception as e:
         import traceback
