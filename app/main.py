@@ -69,7 +69,16 @@ if prompt := st.chat_input("How can I help you today?"):
                     stream=True,
                     timeout=60
                 ) as r:
-                    r.raise_for_status()
+                    if r.status_code == 429:
+                        yield "🚨 Too many requests! Please wait a minute before sending another message."
+                        return
+                    elif r.status_code == 500:
+                        yield f"🚨 **Internal Server Error:**\n\n```\n{r.text}\n```"
+                        return
+                    elif r.status_code != 200:
+                        yield f"🚨 **Error {r.status_code}:** {r.text}"
+                        return
+                        
                     for chunk in r.iter_content(chunk_size=None, decode_unicode=True):
                         if chunk:
                             yield chunk
