@@ -16,7 +16,7 @@ class EntityExtractorNode:
         try:
             logger.info("EntityExtractorNode started")
             structured_llm = self.llm.with_structured_output(
-                EntitySchema
+                EntitySchema, method="json_schema"
             )
 
             chain = ENTITY_PROMPT | structured_llm

@@ -16,7 +16,7 @@ class Classifynode:
         try:
             logger.info("ClassifyNode started")
             structured_llm = self.llm.with_structured_output(
-                ClassificationSchema
+                ClassificationSchema, method="json_schema"
             )
             
             chain = CLASSIFY_PROMPT | structured_llm
