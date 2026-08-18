@@ -5,6 +5,12 @@ on:
     branches:
       - main
 
+# Several quick pushes can otherwise run overlapping SSH deployments. One job may
+# execute `docker-compose down` while another is still building the replacement.
+concurrency:
+  group: ec2-production-deploy
+  cancel-in-progress: true
+
 jobs:
   deploy:
     name: Deploy to EC2

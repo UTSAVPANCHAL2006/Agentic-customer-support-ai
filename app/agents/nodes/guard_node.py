@@ -60,6 +60,17 @@ INJECTION_PATTERNS = [
     r"override\s+(rules|instructions|system)",
 ]
 
+# Customers often provide an ID as a follow-up after we ask for it (for example,
+# "ORD-1013").  Treat that as a support message even when it has no keywords.
+SUPPORT_ID_PATTERN = re.compile(r"\b(?:ORD|TRK|T)-\d+\b", re.IGNORECASE)
+
+# These messages are handled by the classifier's `respond` action.  Blocking
+# them prevents a normal conversation and makes the UI feel broken.
+CONVERSATIONAL_PATTERN = re.compile(
+    r"^(?:hi|hello|hey|thanks|thank you|how are you|how are u)[!?.\s]*$",
+    re.IGNORECASE,
+)
+
 class GuardNode:
 
     def guard_node(self, state: Agentstate):
@@ -75,7 +86,11 @@ class GuardNode:
                     "response": "I'm unable to process that request.",
                 }
 
-            if any(keyword in normalized_message for keyword in SUPPORT_KEYWORDS):
+            if (
+                SUPPORT_ID_PATTERN.search(message)
+                or CONVERSATIONAL_PATTERN.fullmatch(message)
+                or any(keyword in normalized_message for keyword in SUPPORT_KEYWORDS)
+            ):
                 logger.info("GuardNode classification: support")
                 return {}
 
