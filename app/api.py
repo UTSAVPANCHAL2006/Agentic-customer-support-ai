@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 from app.config.config import (
-    OPENAI_API_KEY, OPENAI_EVAL_MODEL, KB_DIR, RESOLVED_TICKETS_FILE, OUTPUT_PATH,
+    OPENAI_API_KEY, OPENAI_AGENT_MODEL, KB_DIR, RESOLVED_TICKETS_FILE, OUTPUT_PATH,
     CHUNK_SIZE, CHUNK_OVERLAP, EMBEDDING_MODEL,
     QDRANT_URL, QDRANT_API_KEY, QDRANT_COLLECTION, VECTOR_SIZE,
 )
@@ -21,7 +21,7 @@ from app.agents.tools.ticket_tool import TicketTool
 from app.agents.tools.user_tool import UserTool
 
 print("Loading LLM...")
-llm = LLM(openai_model=OPENAI_EVAL_MODEL, api_key=OPENAI_API_KEY).get_llm()
+llm = LLM(openai_model=OPENAI_AGENT_MODEL, api_key=OPENAI_API_KEY).get_llm()
 
 print("Loading Documents...")
 loader = Loader(kb_path=KB_DIR, resolved_path=RESOLVED_TICKETS_FILE, output_path=OUTPUT_PATH)

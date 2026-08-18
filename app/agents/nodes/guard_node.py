@@ -3,6 +3,8 @@ import re
 from app.agents.state import Agentstate
 from app.common.custom_exception import CustomException
 from app.common.logger import get_logger
+from app.config.config import OPENAI_API_KEY, OPENAI_AGENT_MODEL
+from langchain_openai import ChatOpenAI
 
 logger = get_logger(__name__)
 
@@ -61,6 +63,9 @@ INJECTION_PATTERNS = [
 ]
 
 class GuardNode:
+
+    def __init__(self):
+        self.llm = ChatOpenAI(model=OPENAI_AGENT_MODEL, api_key=OPENAI_API_KEY, temperature=0)
 
     def guard_node(self, state: Agentstate):
         try:
