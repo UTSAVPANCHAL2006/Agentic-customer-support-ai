@@ -43,6 +43,24 @@ logs/
 graph.png
 *.log
 
+# Screenshots & media
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+
+# SSH / TLS keys — never commit private keys
+*.pem
+*.key
+agent-key.pem
+
+# DeepEval local cache
+.deepeval/
+
+# Eval outputs (may contain PII / raw user queries)
+tests/node_eval_results.json
+
 # IDEs
 .vscode/
 .idea/

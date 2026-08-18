@@ -23,7 +23,7 @@ class Classifynode:
             
             result = chain.invoke({
                 "ticket": state["ticket"],
-                "history": state.get("messages", [])[-4:]
+                "history": state.get("messages", [])[-3:]
             })
             
             logger.info(f"ClassifyNode result: category={result.category}, action={result.action}")

@@ -34,7 +34,11 @@ VECTOR_SIZE       = 768
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-GROQ_MODEL_NAME = "llama-3.3-70b-versatile"
+GROQ_MODEL_NAME = "openai/gpt-oss-120b"  # Updated: llama-3.3-70b-versatile decommissioned
+
+# OpenAI — powers both the agent (ChatOpenAI) and the DeepEval evaluator judge
+OPENAI_API_KEY    = os.getenv("OPENAI_API_KEY")
+OPENAI_EVAL_MODEL = os.getenv("OPENAI_EVAL_MODEL", "gpt-5-nano")
 
 LANGFUSE_PUBLIC_KEY = os.getenv("LANGFUSE_PUBLIC_KEY")
 LANGFUSE_SECRET_KEY = os.getenv("LANGFUSE_SECRET_KEY")

@@ -2,6 +2,7 @@ langchain
 langchain-community
 langchain-core
 langchain-groq
+langchain-openai
 langchain-huggingface
 langchain-qdrant
 sentence_transformers
@@ -14,3 +15,4 @@ uvicorn
 streamlit
 redis
 langgraph-checkpoint-redis
+deepeval

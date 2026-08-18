@@ -1,4 +1,4 @@
-from langchain_groq import ChatGroq
+from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 
 from app.common.logger import get_logger
@@ -8,19 +8,19 @@ logger = get_logger(__name__)
 
 class LLM:
 
-    def __init__(self, groq_model: str, api_key: str):
-        self.groq_model = groq_model
+    def __init__(self, openai_model: str, api_key: str):
+        self.openai_model = openai_model
         self.api_key = api_key
 
     def get_llm(self):
         try:
-            logger.info(f"Loading LLM: {self.groq_model}")
-            
-            llm = ChatGroq(model=self.groq_model, groq_api_key=self.api_key, temperature=0)
-            
+            logger.info(f"Loading LLM: {self.openai_model}")
+
+            llm = ChatOpenAI(model=self.openai_model, api_key=self.api_key, temperature=0)
+
             logger.info("LLM loaded successfully.")
             return llm
-        
+
         except Exception as e:
             logger.exception("Failed to load LLM.")
             raise CustomException(e)
