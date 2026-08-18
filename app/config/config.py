@@ -36,7 +36,7 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 GROQ_MODEL_NAME = "openai/gpt-oss-120b"  # Updated: llama-3.3-70b-versatile decommissioned
 
-# OpenAI — powers both the agent (ChatOpenAI) and the DeepEval evaluator judge
+# OpenAI — used ONLY by the DeepEval evaluator judge (offline eval)
 OPENAI_API_KEY    = os.getenv("OPENAI_API_KEY")
 OPENAI_EVAL_MODEL = os.getenv("OPENAI_EVAL_MODEL", "gpt-5-nano")
 
